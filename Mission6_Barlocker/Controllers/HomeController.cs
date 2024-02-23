@@ -23,13 +23,13 @@ namespace Mission6_Barlocker.Controllers
             return View();
         }
 
-        public IActionResult Collection()
+        public IActionResult MovieForm()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Collection(MovieInput input) 
+        public IActionResult MovieForm(Movie input) 
         {
             _context.MovieInputs.Add(input); // Add to the database
             _context.SaveChanges(); // Commit changes to database
