@@ -8,7 +8,7 @@ namespace Mission6_Barlocker.Models
         {
         }
 
-        public DbSet <Movie> MovieInputs { get; set; }
+        public DbSet <Movie> Movies { get; set; }
         public DbSet <Category> Categories { get; set; }
     }
 }

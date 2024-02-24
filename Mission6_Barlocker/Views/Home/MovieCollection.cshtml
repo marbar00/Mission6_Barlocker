@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<MovieCategory>
+
+<div class="container mt-3">
+    <table class="table">
+        <thead class=>
+            <tr>
+                <th>Category</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Edited</th>
+                <th>Lent To</th>
+                <th>Copied to Plex</th>
+                <th>Notes</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td>@(m.Category?.CategoryName ?? "")</td>
+                    <td>@m.Movie.Title</td>
+                    <td>@m.Movie.Year</td>
+                    <td>@m.Movie.Director</td>
+                    <td>@m.Movie.Rating</td>
+                    <td>@m.Movie.Edited</td>
+                    <td>@m.Movie.LentTo</td>
+                    <td>@m.Movie.CopiedToPlex</td>
+                    <td>@m.Movie.Notes</td>
+                    <td><a class="btn btn-primary btn-sm" asp-controller="Home" asp-action="Edit" asp-route-id="@m.Movie.MovieId">Edit</a> </td>
+                    <td><a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@m.Movie.MovieId">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

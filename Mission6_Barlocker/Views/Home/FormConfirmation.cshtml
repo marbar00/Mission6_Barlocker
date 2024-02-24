@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Movie
+
+<div class="container mt-3">
+    <h2>Movie Input Confirmation</h2>
+    <p>Thank you for inputing the following movie: <strong>@Model.Title</strong></p>
+    <div>
+        <p>Would you like to input another movie?</p>
+        <a asp-controller="Home" asp-action="MovieForm" class="btn btn-primary">Input Another</a>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">No Thanks</a>
+    </div>
+    
+    
+
+</div>
