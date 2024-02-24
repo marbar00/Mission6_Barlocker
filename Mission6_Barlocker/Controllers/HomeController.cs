@@ -86,10 +86,22 @@ namespace Mission6_Barlocker.Controllers
         [HttpPost]
         public IActionResult Edit(Movie updatedInfo)
         {
-            _context.Update(updatedInfo);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _context.Update(updatedInfo);
+                _context.SaveChanges();
 
-            return RedirectToAction("MovieCollection");
+                return RedirectToAction("MovieCollection");
+            }
+            else
+            {
+                ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.CategoryName)
+                .ToList();
+
+                return View("MovieForm", updatedInfo);
+            }
+            
         }
 
         public IActionResult Delete(int id)
